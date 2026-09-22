@@ -1,133 +1,68 @@
-:root {
-    --color-button-primary: #001929;
-    --color-button-hovering: #4EA5D9;
-    --color-background: #C3C3E6;
-    --color-highlight: #5DFDCB;
-
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-body {
-    width: 100%;
+* {
     margin: 0;
     padding: 0;
-    font-family: "REM", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: normal;
-    position: absolute;
-    background: linear-gradient(to right, var(--color-button-primary), var(--color-button-hovering));
+    box-sizing: border-box;
 }
 
-/*    //GENERAL//     */
-.displayFlex{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-/*    //HEADER//     */
-
-.site_header{
-    padding: 10px 25px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    background: linear-gradient(to right, var(--color-button-primary), var(--color-button-hovering));
-}
-
-.site_header p{
-    font-weight: bolder;
-    color: #ffffff;
-}
-
-.site_header a{
-    text-decoration: none;
-    font-family: 'REM', sans-serif;
-    color: #000;
-}
-
-.site_header div{
-    display: flex;
     align-items: center;
-    gap: 45px;
+
+    height: 100vh;
 }
 
-/*    //INTRODUCTION//   */
+.calculadora {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-.intro {
-    width: 100%;
-    height: 17rem;
-    background-color: var(--color-background);
+    width: 320px;
+}
+
+.calculadora h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 22px;
+}
+
+form {
+    display: flex;
     flex-direction: column;
+    gap: 12px;
 }
 
-.btnMarine {
-    background-color: var(--color-button-primary);
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-style: oblique;
+input,
+button {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.operador {
+    text-align: center;
+    font-size: 24px;
     font-weight: bold;
-    animation: normal;
-    transition: var(--transition-smooth);
+    color: #0078d7;
 }
 
-.btnMarine:hover{
-    background-color: var(--color-button-hovering);
-    transform: scale(1.05);
+button {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
-/*    //CARD-ROW//    */
-
-.cardRow{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    padding: 2rem 0;
-    align-items: center;
-    justify-content: space-around;
-    background: linear-gradient(to right, var(--color-button-primary), var(--color-button-hovering));
+button:hover {
+    background-color: #005ea6;
 }
 
-.cardRow div{
-    padding: 20px 40px;
-    color: #ffffff;
-    border: 2px;
-    border-style: solid;
-    border-color: #000000;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/*    //FOOTER//    */
-
-.footer{
-    position: relative;
-    bottom: 0;
-    background-color: var(--color-background);
-    width: 100%;
-    padding: 7px 0;
-    flex-direction: column;
-}
-
-@media screen and (max-width: 768px) {
-    .cardRow {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .btnMarine {
-        display: none;
-    }
-
-    .site_header div {
-        gap: 20px;
-    }
+input[readonly] {
+    background-color: #f0f0f0;
 }

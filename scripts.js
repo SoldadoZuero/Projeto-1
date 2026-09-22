@@ -1,25 +1,13 @@
-/* MODELO 1: EXEMPLO SIMPLES */
+const f = document.getElementById("formulario");
+const num1 = document.getElementById("num1");
+const num2 = document.getElementById("num2");
+const resultado = document.getElementById("resultado");
+const somar = document.getElementById("somar");
 
-var a = 10;
-var b = 20;
-var c = a + b;
-console.log("O resultado da soma é: " + c);
-
-/* MODELO 2: FUNÇÃO SIMPLES */
-
-function somar(x, y) {
-    return x + y;
-}
-
-var resultado = somar(5, 15);
-console.log("O resultado da soma é: " + resultado);
-
-/* MODELO 3: TIPOS DE VARIAVEIS */
-
-var a = 0; // Variável global
-let b = 1; // Variável de bloco
-const c = 2; // Variável constante
-
-console.log("Variável global a: " + a);
-console.log("Variável de bloco b: " + b);
-console.log("Variável constante c: " + c);
+f.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const n1 = parseFloat(num1.value);
+    const n2 = parseFloat(num2.value);
+    const soma = n1 + n2;
+    resultado.value = soma;
+});
