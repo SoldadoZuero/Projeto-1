@@ -1,0 +1,133 @@
+:root {
+    --color-button-primary: #001929;
+    --color-button-hovering: #4EA5D9;
+    --color-background: #C3C3E6;
+    --color-highlight: #5DFDCB;
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "REM", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: normal;
+    position: absolute;
+    background: linear-gradient(to right, var(--color-button-primary), var(--color-button-hovering));
+}
+
+/*    //GENERAL//     */
+.displayFlex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*    //HEADER//     */
+
+.site_header{
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background: linear-gradient(to right, var(--color-button-primary), var(--color-button-hovering));
+}
+
+.site_header p{
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.site_header a{
+    text-decoration: none;
+    font-family: 'REM', sans-serif;
+    color: #000;
+}
+
+.site_header div{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+/*    //INTRODUCTION//   */
+
+.intro {
+    width: 100%;
+    height: 17rem;
+    background-color: var(--color-background);
+    flex-direction: column;
+}
+
+.btnMarine {
+    background-color: var(--color-button-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-style: oblique;
+    font-weight: bold;
+    animation: normal;
+    transition: var(--transition-smooth);
+}
+
+.btnMarine:hover{
+    background-color: var(--color-button-hovering);
+    transform: scale(1.05);
+}
+
+/*    //CARD-ROW//    */
+
+.cardRow{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 2rem 0;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(to right, var(--color-button-primary), var(--color-button-hovering));
+}
+
+.cardRow div{
+    padding: 20px 40px;
+    color: #ffffff;
+    border: 2px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*    //FOOTER//    */
+
+.footer{
+    position: relative;
+    bottom: 0;
+    background-color: var(--color-background);
+    width: 100%;
+    padding: 7px 0;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    .cardRow {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btnMarine {
+        display: none;
+    }
+
+    .site_header div {
+        gap: 20px;
+    }
+}
