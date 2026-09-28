@@ -1,9 +1,9 @@
-const f = document.getElementById("formulario");
-const num1 = document.getElementById("num1");
-const num2 = document.getElementById("num2");
-const resultado = document.getElementById("resultado");
+var f = document.getElementById("formulario");
 
 f.addEventListener("submit", function(e) {
+    let num1 = document.getElementById("num1");
+    let num2 = document.getElementById("num2");
+    let resultado = document.getElementById("resultado");
 
     if (num1.value === "" || num2.value === "") {
         alert("Preencha todos os campos!");
