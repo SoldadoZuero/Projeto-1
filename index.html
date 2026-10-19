@@ -3,26 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Soma</title>
+    <title>Calculadora de Compras</title>
     <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
 </head>
 <body>
 
     <div class="calculadora">
-        <h1>Calculadora de Soma</h1>
-
+        <h1>Calculadora de Compras</h1>
+        <h4>Compras maiores que R$ 100,00 terão desconto de 5% aplicado.</h4>
+        <h4>Compras maiores que R$ 500,00 terão desconto de 10% aplicado.</h4>
         <form id="formulario">
-            <input id="num1" placeholder="Primeiro número ex(1, -6, 2.5)">
-
+            <div>
+                <label for="item1">Item 1:</label>
+                <input id="item1" placeholder="Roupa, sapato, bolsa...">
+                <span class="operador">=></span>
+                <label for="valor1">Valor 1:</label>
+                <input id="valor1" placeholder="Preço">
+            </div>
             <span class="operador">+</span>
-
-            <input id="num2" placeholder="Segundo número ex(5, -6, 0.7)">
+            <div>
+                <label for="item2">Item 2:</label>
+                <input id="item2" placeholder="Roupa, sapato, bolsa...">
+                <span class="operador">=></span>
+                <label for="valor2">Valor 2:</label>
+                <input id="valor2" placeholder="Preço">
+            </div>
+            <span class="operador">+</span>
+            <div>
+                <label for="item3">Item 3:</label>
+                <input id="item3" placeholder="Roupa, sapato, bolsa...">
+                <span class="operador">=></span>
+                <label for="valor3">Valor 3:</label>
+                <input id="valor3" placeholder="Preço">
+            </div>
 
             <button type="submit" id="somar">Somar</button>
-
-            <input id="resultado" type="text" placeholder="Resultado" readonly>
+            <div>
+                <label for="subtotal">Subtotal:</label>
+                <input id="subtotal" type="text" placeholder="Subtotal" readonly>
+                <label for="desconto">Desconto:</label>
+                <input id="desconto" type="text" placeholder="Desconto (R$)" readonly>
+                <label for="total">Total:</label>
+                <input id="total" type="text" placeholder="Total" readonly>
+            </div>
         </form>
+        
     </div>
 
 </body>
