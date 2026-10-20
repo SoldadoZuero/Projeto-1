@@ -4,65 +4,197 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+:root {
+    --fundo: #f3f6f4;
+    --superficie: #ffffff;
+    --texto: #20302b;
+    --texto-suave: #6c7b75;
+    --borda: #d9e4df;
+    --destaque: #287d68;
+    --destaque-escuro: #1d5f50;
+    --destaque-claro: #e8f4ef;
+    --sombra: 0 20px 55px rgba(31, 61, 51, 0.12);
+}
 
+body {
+    min-height: 100vh;
+    padding: 32px 16px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: var(--texto);
+    background: linear-gradient(135deg, #eef5f1 0%, var(--fundo) 52%, #e7f0ec 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 100vh;
 }
 
 .calculadora {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    width: 320px;
+    width: min(100%, 620px);
+    padding: clamp(24px, 5vw, 44px);
+    background-color: var(--superficie);
+    border: 1px solid rgba(217, 228, 223, 0.9);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
 }
 
-.calculadora h1 {
+.cabecalho {
+    margin-bottom: 28px;
     text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 22px;
+}
+
+.etiqueta {
+    margin-bottom: 8px;
+    color: var(--destaque);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: clamp(26px, 5vw, 34px);
+    line-height: 1.1;
+}
+
+.descricao {
+    max-width: 390px;
+    margin: 0 auto 18px;
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.regras {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.regras span {
+    padding: 8px 11px;
+    color: var(--destaque-escuro);
+    background: var(--destaque-claro);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
-input,
-button {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.item,
+.resumo {
+    display: grid;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #fbfdfc;
+}
+
+.item {
+    grid-template-columns: auto minmax(110px, 1fr) auto auto minmax(90px, 0.7fr);
+}
+
+.resumo {
+    grid-template-columns: auto 1fr;
+    margin-top: 8px;
+    background: var(--destaque-claro);
+}
+
+label {
+    color: var(--texto-suave);
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .operador {
     text-align: center;
-    font-size: 24px;
+    color: var(--destaque);
+    font-size: 18px;
     font-weight: bold;
-    color: #0078d7;
+}
+
+input,
+button {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 15px;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input {
+    color: var(--texto);
+    background: var(--superficie);
+}
+
+input::placeholder {
+    color: #a1afa9;
+}
+
+input:focus {
+    border-color: var(--destaque);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 125, 104, 0.14);
 }
 
 button {
-    background-color: #0078d7;
+    margin-top: 8px;
+    background-color: var(--destaque);
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 160ms ease, transform 160ms ease;
 }
 
 button:hover {
-    background-color: #005ea6;
+    background-color: var(--destaque-escuro);
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(40, 125, 104, 0.3);
+    outline-offset: 2px;
 }
 
 input[readonly] {
-    background-color: #f0f0f0;
+    color: var(--destaque-escuro);
+    background-color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+}
+
+@media (max-width: 560px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .calculadora {
+        margin-top: 12px;
+    }
+
+    .item {
+        grid-template-columns: auto 1fr;
+    }
+
+    .item .operador {
+        display: none;
+    }
+
+    .item input {
+        grid-column: 2;
+    }
+
+    .item label:nth-of-type(2) {
+        grid-column: 1;
+    }
 }
